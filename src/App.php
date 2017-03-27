@@ -75,17 +75,19 @@ final class App implements AsynchronousApp
             if($service instanceof ExposesRouting) {
                 $routes = $service->getRouteConfiguration();
                 $serviceRouter = \Aerys\router();
-                foreach($routes['routes'] as $route => $detail) {
-                    foreach($detail as $method => $controllerSpec) {
-                        if(is_callable($controllerSpec)) {
-                            $controller = $controllerSpec;
-                        } else {
-                            $this->injector->share($controllerSpec);
-                            $controller = $this->injector->make($controllerSpec);
-                        }
+                foreach($routes['routes'] as $routeName => $routeDetail) {
+                    $route = $routeDetail['path'];
+                    $method = $routeDetail['method'];
+                    $controllerSpec = $routeDetail['action'];
 
-                        $serviceRouter->route(strtoupper($method), $route, $controller);
+                    if(is_callable($controllerSpec)) {
+                        $controller = $controllerSpec;
+                    } else {
+                        $this->injector->share($controllerSpec);
+                        $controller = $this->injector->make($controllerSpec);
                     }
+
+                    $serviceRouter->route(strtoupper($method), $route, $controller);
                 }
                 $serviceRouter->prefix($routes['prefix']);
                 $this->router->use($serviceRouter);

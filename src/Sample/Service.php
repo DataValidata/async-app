@@ -5,6 +5,7 @@ namespace DataValidata\AsyncApp\Sample;
 use DataValidata\AsyncApp\ExposesRouting;
 use DataValidata\AsyncApp\InjectionVisitable;
 use Auryn\Injector;
+use DataValidata\AsyncApp\Sample\Controller;
 
 class Service implements ExposesRouting, InjectionVisitable
 {
@@ -25,8 +26,10 @@ class Service implements ExposesRouting, InjectionVisitable
         return [
             'prefix' => '',
             'routes' => [
-                '/' => [
-                    'get' => Controller::class
+                'index' => [
+                    'path' => '/',
+                    'method' => 'get',
+                    'action' => Controller::class,
                 ]
             ]
         ];
