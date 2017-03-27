@@ -1,0 +1,28 @@
+{
+    "name": "datavalidata/async-app",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ciaran Kelly",
+            "email": "ciaran@datavalidata.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.0.0",
+        "amphp/aerys": "dev-amp_v2",
+        "rdlowrey/auryn": "^1.4",
+        "vlucas/phpdotenv": "^2.4",
+        "beberlei/assert": "^2.7",
+        "lstrojny/functional-php": "^1.5"
+    },
+    "require-dev":{
+        "phpspec/phpspec": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "DataValidata\\AsyncApp\\" : "src"
+        }
+    }
+}
