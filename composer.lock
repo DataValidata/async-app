@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cf20ec91d66747cf9488894bfa1cc44",
+    "content-hash": "dba39720b1d4142a962a0c1601d83fcf",
     "packages": [
         {
             "name": "amphp/aerys",
@@ -94,12 +94,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/amp.git",
-                "reference": "95b3f624972f28b347e5ce48a1498d9acbd38b44"
+                "reference": "c464e070e4cc6aa9a162d7a66df04c7513aef90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/amp/zipball/95b3f624972f28b347e5ce48a1498d9acbd38b44",
-                "reference": "95b3f624972f28b347e5ce48a1498d9acbd38b44",
+                "url": "https://api.github.com/repos/amphp/amp/zipball/c464e070e4cc6aa9a162d7a66df04c7513aef90e",
+                "reference": "c464e070e4cc6aa9a162d7a66df04c7513aef90e",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 "non-blocking",
                 "promise"
             ],
-            "time": "2017-03-21 19:05:45"
+            "time": "2017-03-26 17:53:26"
         },
         {
             "name": "amphp/cache",
@@ -346,6 +346,53 @@
             "time": "2017-03-21 23:53:55"
         },
         {
+            "name": "amphp/loop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amphp/loop.git",
+                "reference": "302a5c714c2700d32ca9444be09f21b2835b213f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amphp/loop/zipball/302a5c714c2700d32ca9444be09f21b2835b213f",
+                "reference": "302a5c714c2700d32ca9444be09f21b2835b213f",
+                "shasum": ""
+            },
+            "require": {
+                "async-interop/event-loop": "^0.5"
+            },
+            "provide": {
+                "async-interop/event-loop-implementation": "0.5"
+            },
+            "require-dev": {
+                "async-interop/event-loop-test": "^0.5",
+                "friendsofphp/php-cs-fixer": "~1.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Amp\\Loop\\": "lib"
+                },
+                "files": [
+                    "lib/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://amphp.org",
+            "keywords": [
+                "async",
+                "asynchronous",
+                "event",
+                "loop",
+                "reactor"
+            ],
+            "time": "2017-02-17 06:02:04"
+        },
+        {
             "name": "amphp/process",
             "version": "dev-amp_v2",
             "source": {
@@ -397,12 +444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/socket.git",
-                "reference": "b38de0b80696dd285f8b1d78be0723a2e7f863cb"
+                "reference": "d6660cb67d2d96c322df2add45e49e66aacb443f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/socket/zipball/b38de0b80696dd285f8b1d78be0723a2e7f863cb",
-                "reference": "b38de0b80696dd285f8b1d78be0723a2e7f863cb",
+                "url": "https://api.github.com/repos/amphp/socket/zipball/d6660cb67d2d96c322df2add45e49e66aacb443f",
+                "reference": "d6660cb67d2d96c322df2add45e49e66aacb443f",
                 "shasum": ""
             },
             "require": {
@@ -450,7 +497,7 @@
                 "tcp",
                 "tls"
             ],
-            "time": "2017-03-23 14:11:16"
+            "time": "2017-03-25 01:49:36"
         },
         {
             "name": "amphp/stream",
@@ -458,12 +505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/stream.git",
-                "reference": "4414c6bbe439b6d38d5b2ffcb68cacfb63234ee6"
+                "reference": "858a76e675f0e507f4457635d93acbd40155af48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/stream/zipball/4414c6bbe439b6d38d5b2ffcb68cacfb63234ee6",
-                "reference": "4414c6bbe439b6d38d5b2ffcb68cacfb63234ee6",
+                "url": "https://api.github.com/repos/amphp/stream/zipball/858a76e675f0e507f4457635d93acbd40155af48",
+                "reference": "858a76e675f0e507f4457635d93acbd40155af48",
                 "shasum": ""
             },
             "require": {
@@ -501,7 +548,7 @@
                 "non-blocking",
                 "stream"
             ],
-            "time": "2017-03-16 21:49:09"
+            "time": "2017-03-23 23:38:15"
         },
         {
             "name": "amphp/windows-registry",
@@ -539,6 +586,47 @@
             ],
             "description": "Windows Registry Reader.",
             "time": "2017-03-17 03:47:16"
+        },
+        {
+            "name": "async-interop/event-loop",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/async-interop/event-loop.git",
+                "reference": "372272601b3f43064bd06e90fa1c8f3a009accd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/async-interop/event-loop/zipball/372272601b3f43064bd06e90fa1c8f3a009accd8",
+                "reference": "372272601b3f43064bd06e90fa1c8f3a009accd8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "^0.3.2",
+                "jakub-onderka/php-parallel-lint": "^0.9.2",
+                "phpunit/phpunit": "^4|^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AsyncInterop\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An event loop interface for interoperability.",
+            "keywords": [
+                "async",
+                "event",
+                "interop",
+                "loop"
+            ],
+            "time": "2017-01-05T10:19:16+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -2117,7 +2205,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "amphp/aerys": 20
+        "amphp/aerys": 20,
+        "amphp/loop": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
