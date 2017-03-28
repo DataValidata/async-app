@@ -3,22 +3,22 @@
 namespace DataValidata\AsyncApp\Sample;
 
 
+use DataValidata\AsyncApp\Http\Routes\Generator;
+
 class Controller
 {
-    /** @var \DateTime  */
-    private $created;
-    private $offset;
+    /** @var Generator  */
+    private $generator;
 
-    public function __construct(\DateTime $created, $offset)
+    public function __construct(Generator $routeGenerator)
     {
-        $this->created = $created;
-        $this->offset = $offset;
+        $this->generator = $routeGenerator;
     }
 
     public function __invoke(\Aerys\Request $req, \Aerys\Response $res, $routeArgs = [])
     {
-        $sinceCreated = ((new \DateTime)->getTimestamp() - $this->created->getTimestamp()) + $this->offset;
+        $route = $this->generator->generate('index', [], ['id'=>'some', 'address'=>'102 tonlegee road']);
 
-        $res->end("<html><body><h1>AppDefault/Controller : $sinceCreated</h1></body></html>");
+        $res->end("<html><body><h1>AppDefault/Controller : $route</h1></body></html>");
     }
 }

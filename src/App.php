@@ -2,6 +2,8 @@
 
 namespace DataValidata\AsyncApp;
 
+use Aura\Router\{RouterContainer, Route};
+use DataValidata\AsyncApp\Http\Routes\Generator;
 use Functional;
 use Auryn\Injector;
 use Aerys\{Host, Router};
@@ -17,6 +19,9 @@ final class App implements AsynchronousApp
 
     /** @var Router  */
     private $router;
+
+    /** @var  RouterContainer */
+    private $routes;
 
     private $hostUsables = [];
 
@@ -34,13 +39,22 @@ final class App implements AsynchronousApp
 
     private function loadServices()
     {
+        $this->routes = $this->injector->share(RouterContainer::class)->make(RouterContainer::class);
+        $this->injector->share(Generator::class);
         Functional\map(
             ServiceLoader::getInstance()->getServices(),
             $this->getServiceBuildChain()
         );
 
         $fallback = function(\Aerys\Request $req, \Aerys\Response $res) {
-            $res->end("<html><body><h1>Fallback \o/</h1></body></html>");
+
+            $list = "";
+            foreach($this->routes as $route) {
+                /** @var Route $route */
+                $list .= "<li>".$route->pathPrefix . '/' .$route->path. "</li>";
+            }
+
+            $res->end("<html><body><h1>Fallback \o/</h1><ul>$list</ul></body></html>");
         };
         $this->attachHostUsable($fallback);
 
@@ -73,31 +87,11 @@ final class App implements AsynchronousApp
         $initialiseRouting = function($serviceName) {
             $service = $this->injector->make($serviceName);
             if($service instanceof ExposesRouting) {
-                $routes = $service->getRouteConfiguration();
-                $serviceRouter = \Aerys\router();
-                foreach($routes['routes'] as $routeName => $routeDetail) {
-                    $route = $routeDetail['path'];
-                    $method = $routeDetail['method'];
-                    $controllerSpec = $routeDetail['action'];
-
-                    if(is_callable($controllerSpec)) {
-                        $controller = $controllerSpec;
-                    } else {
-                        $this->injector->share($controllerSpec);
-                        $controller = $this->injector->make($controllerSpec);
-                    }
-
-                    $serviceRouter->route(strtoupper($method), $route, $controller);
-                }
-                $serviceRouter->prefix($routes['prefix']);
-                $this->router->use($serviceRouter);
+                $this->extractRouting($service);
             }
 
             if($service instanceof ExposesStaticRouting) {
-                $docRoots = $service->getDocRoots();
-                foreach($docRoots as $docRoot) {
-                    $this->attachHostUsable(\Aerys\root($docRoot));
-                }
+                $this->extractStaticRouting($service);
             }
         };
 
@@ -148,5 +142,41 @@ final class App implements AsynchronousApp
     private function attachHostUsable($usable)
     {
         $this->hostUsables[] = $usable;
+    }
+
+    private function extractRouting(ExposesRouting $service)
+    {
+        $routes = $service->getRouteConfiguration();
+        $serviceRouter = \Aerys\router();
+        foreach($routes['routes'] as $routeName => $routeDetail) {
+            $route = $routeDetail['path'];
+            $method = $routeDetail['method'];
+            $controllerSpec = $routeDetail['action'];
+
+            if(is_callable($controllerSpec)) {
+                $controller = $controllerSpec;
+            } else {
+                $this->injector->share($controllerSpec);
+                $controller = $this->injector->make($controllerSpec);
+            }
+
+            ($this->routes->getMap())->addRoute(
+                (new Route())
+                    ->name($routeName)
+                    ->pathPrefix($routes['prefix'])
+                    ->path($route)
+            );
+            $serviceRouter->route(strtoupper($method), $route, $controller);
+        }
+        $serviceRouter->prefix($routes['prefix']);
+        $this->router->use($serviceRouter);
+    }
+
+    private function extractStaticRouting(ExposesStaticRouting $service)
+    {
+        $docRoots = $service->getDocRoots();
+        foreach($docRoots as $docRoot) {
+            $this->attachHostUsable(\Aerys\root($docRoot));
+        }
     }
 }

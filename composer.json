@@ -16,7 +16,8 @@
         "rdlowrey/auryn": "^1.4",
         "vlucas/phpdotenv": "^2.4",
         "beberlei/assert": "^2.7",
-        "lstrojny/functional-php": "^1.5"
+        "lstrojny/functional-php": "^1.5",
+        "aura/router": "^3.1"
     },
     "require-dev":{
         "phpspec/phpspec": "^3"
