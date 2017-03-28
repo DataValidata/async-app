@@ -49,9 +49,10 @@ final class App implements AsynchronousApp
         $fallback = function(\Aerys\Request $req, \Aerys\Response $res) {
 
             $list = "";
-            foreach($this->routes as $route) {
+            foreach($this->routes->getMap() as $route) {
                 /** @var Route $route */
-                $list .= "<li>".$route->pathPrefix . '/' .$route->path. "</li>";
+                $url = '/' . ltrim($route->path, "/");
+                $list .= "<li>$url</li>";
             }
 
             $res->end("<html><body><h1>Fallback \o/</h1><ul>$list</ul></body></html>");
