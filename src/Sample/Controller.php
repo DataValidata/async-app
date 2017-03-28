@@ -17,7 +17,7 @@ class Controller
 
     public function __invoke(\Aerys\Request $req, \Aerys\Response $res, $routeArgs = [])
     {
-        $route = $this->generator->generate('index', [], ['id'=>'some', 'address'=>'102 tonlegee road']);
+        $route = $this->generator->generate('index', [], ['id'=>'some', 'address'=>'54 some street']);
 
         $res->end("<html><body><h1>AppDefault/Controller : $route</h1></body></html>");
     }
