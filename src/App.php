@@ -111,8 +111,9 @@ final class App implements AsynchronousApp
 
     private function loadEnvironment()
     {
-        if (file_exists(dirname(__DIR__) . '/.env')) {
-            $dotenv = new Dotenv(dirname(__DIR__));
+        $appRoot = getenv('APP_ROOT');
+        if (file_exists($appRoot . '/.env')) {
+            $dotenv = new Dotenv($appRoot);
             $dotenv->load();
         }
     }
