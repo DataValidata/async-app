@@ -3,6 +3,9 @@
 namespace DataValidata\AsyncApp;
 
 use Aura\Router\{RouterContainer, Route};
+use DataValidata\AsyncApp\Framework\AppRoute;
+use DataValidata\AsyncApp\Framework\Route\NamedAction;
+use DataValidata\AsyncApp\Framework\RouteConfiguration;
 use DataValidata\AsyncApp\Http\Routes\Generator;
 use Functional;
 use Auryn\Injector;
@@ -148,29 +151,37 @@ final class App implements AsynchronousApp
 
     private function extractRouting(ExposesRouting $service)
     {
+        /** @var RouteConfiguration|AppRoute[] $routes */
         $routes = $service->getRouteConfiguration();
         $serviceRouter = \Aerys\router();
-        foreach($routes['routes'] as $routeName => $routeDetail) {
-            $route = $routeDetail['path'];
-            $method = $routeDetail['method'];
-            $controllerSpec = $routeDetail['action'];
+        foreach($routes as $routeDetail) {
+            $path   = $routeDetail->path();
+            $method = $routeDetail->method();
+            $action = $routeDetail->action();
 
-            if(is_callable($controllerSpec)) {
-                $controller = $controllerSpec;
+            if(is_callable($action)) {
+                $controller = $action;
             } else {
-                $this->injector->share($controllerSpec);
-                $controller = $this->injector->make($controllerSpec);
+                if($action instanceof NamedAction) {
+                    $controller = $action->wrap($this->injector);
+                } else {
+                    $this->injector->share($action);
+                    $controller = $this->injector->make($action);
+                }
             }
 
-            ($this->routes->getMap())->addRoute(
-                (new Route())
-                    ->name($routeName)
-                    ->pathPrefix($routes['prefix'])
-                    ->path($route)
-            );
-            $serviceRouter->route(strtoupper($method), $route, $controller);
+            if($routeDetail->isNamed()) {
+                ($this->routes->getMap())->addRoute(
+                    (new Route())
+                        ->name($routeDetail->name())
+                        ->pathPrefix($routes->prefix())
+                        ->path($path)
+                );
+            }
+
+            $serviceRouter->route(strtoupper($method), $path, $controller);
         }
-        $serviceRouter->prefix($routes['prefix']);
+        $serviceRouter->prefix($routes->prefix());
         $this->router->use($serviceRouter);
     }
 

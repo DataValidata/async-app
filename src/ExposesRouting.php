@@ -4,7 +4,9 @@
 namespace DataValidata\AsyncApp;
 
 
+use DataValidata\AsyncApp\Framework\RouteConfiguration;
+
 interface ExposesRouting
 {
-    public function getRouteConfiguration();
+    public function getRouteConfiguration() : RouteConfiguration;
 }

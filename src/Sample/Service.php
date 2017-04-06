@@ -3,6 +3,8 @@
 namespace DataValidata\AsyncApp\Sample;
 
 use DataValidata\AsyncApp\ExposesRouting;
+use DataValidata\AsyncApp\Framework\AppRoute;
+use DataValidata\AsyncApp\Framework\RouteConfiguration;
 use DataValidata\AsyncApp\InjectionVisitable;
 use Auryn\Injector;
 
@@ -20,17 +22,11 @@ class Service implements ExposesRouting, InjectionVisitable
 //        ;
     }
 
-    public function getRouteConfiguration()
+    public function getRouteConfiguration(): RouteConfiguration
     {
-        return [
-            'prefix' => '',
-            'routes' => [
-                'index' => [
-                    'path' => '/',
-                    'method' => 'get',
-                    'action' => Controller::class,
-                ]
-            ]
-        ];
+        return RouteConfiguration::withRoutes([
+            AppRoute::get('/', Controller::class),
+            AppRoute::get('/named', [Controller::class, 'namedAction'])->withName('namedAction'),
+        ]);
     }
 }
