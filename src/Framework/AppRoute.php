@@ -27,6 +27,11 @@ class AppRoute
         return new static($path, 'get', $action);
     }
 
+    public static function post($path, $action)
+    {
+        return new static($path, 'post', $action);
+    }
+
     public function withName($name)
     {
         $this->name = $name;
