@@ -11,6 +11,7 @@ use Functional;
 use Auryn\Injector;
 use Aerys\{Host, Router};
 use Dotenv\Dotenv;
+use Psr\Log\LoggerInterface;
 
 final class App implements AsynchronousApp
 {
@@ -31,6 +32,16 @@ final class App implements AsynchronousApp
     public final function __construct(Injector $injector)
     {
         $this->injector = $injector;
+        $this->injector->share(AerysInternals::class)->make(AerysInternals::class);
+        $this->injector->delegate(LoggerInterface::class, function() {
+            /** @var AerysInternals $internals */
+            $internals = $this->injector->make(AerysInternals::class);
+            if($internals->isBooted()) {
+                return $internals->getLogger();
+            } else {
+                return $internals;
+            }
+        });
         $this->attachHostUsable($this->router = \Aerys\router());
 
         $this->loadEnvironment();
@@ -135,8 +146,11 @@ final class App implements AsynchronousApp
      */
     private function listen()
     {
-        $this->host = (new Host())->expose("*", getenv('PORT'))
-            ->use($this->injector->make(Logger::class));
+        $this->host = (new Host())
+            ->expose("*", getenv('PORT'))
+            ->use($this->injector->make(Logger::class))
+            ->use($this->injector->make(AerysInternals::class))
+        ;
         $this->injector->share($this->host);
         return $this->host;
     }

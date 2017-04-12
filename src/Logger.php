@@ -2,14 +2,16 @@
 
 namespace DataValidata\AsyncApp;
 
-class Logger implements \Aerys\Bootable, \Aerys\Middleware
+use Psr\Log\LoggerInterface;
+
+class Logger implements \Aerys\Bootable, \Aerys\Middleware, LoggerInterface
 {
     /** @var  \Psr\Log\LoggerInterface */
     private $logger;
 
     const LOG_FORMAT = '%s %s %s [%s] "%s %s HTTP/%s" %s %s';
 
-    function boot(\Aerys\Server $server, \Psr\Log\LoggerInterface $logger)
+    function boot(\Aerys\Server $server, LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
@@ -38,4 +40,48 @@ class Logger implements \Aerys\Bootable, \Aerys\Middleware
         return $headers;
     }
 
+    public function emergency($message, array $context = array())
+    {
+        $this->logger->emergency($message, $context);
+    }
+
+    public function alert($message, array $context = array())
+    {
+        $this->logger->alert($message, $context);
+    }
+
+    public function critical($message, array $context = array())
+    {
+        $this->logger->critical($message, $context);
+    }
+
+    public function error($message, array $context = array())
+    {
+        $this->logger->error($message, $context);
+    }
+
+    public function warning($message, array $context = array())
+    {
+        $this->logger->warning($message, $context);
+    }
+
+    public function notice($message, array $context = array())
+    {
+        $this->logger->notice($message, $context);
+    }
+
+    public function info($message, array $context = array())
+    {
+        $this->logger->info($message, $context);
+    }
+
+    public function debug($message, array $context = array())
+    {
+        // TODO: Implement debug() method.
+    }
+
+    public function log($level, $message, array $context = array())
+    {
+        // TODO: Implement log() method.
+    }
 }
