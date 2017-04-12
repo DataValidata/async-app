@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "28f454f2deb1a49891ffcecc656aa301",
+    "content-hash": "776ab8a9a0be4c12c124fc75c6d8fd72",
     "packages": [
         {
             "name": "amphp/aerys",
-            "version": "dev-amp_v2",
+            "version": "dev-amp_v2_dv",
             "source": {
                 "type": "git",
-                "url": "https://github.com/amphp/aerys.git",
-                "reference": "360d0d2ea5a22625fa51d252e8c36b2a8da8bca7"
+                "url": "https://github.com/DataValidata/aerys.git",
+                "reference": "748ea44fef98e411c5786350a44273dddb849e1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/aerys/zipball/360d0d2ea5a22625fa51d252e8c36b2a8da8bca7",
-                "reference": "360d0d2ea5a22625fa51d252e8c36b2a8da8bca7",
+                "url": "https://api.github.com/repos/DataValidata/aerys/zipball/748ea44fef98e411c5786350a44273dddb849e1c",
+                "reference": "748ea44fef98e411c5786350a44273dddb849e1c",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,11 @@
                     "lib/Internal/functions.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Aerys\\Test\\": "test/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -86,7 +90,10 @@
                 "server",
                 "websocket"
             ],
-            "time": "2017-03-22 03:44:33"
+            "support": {
+                "source": "https://github.com/DataValidata/aerys/tree/amp_v2_dv"
+            },
+            "time": "2017-04-12 23:03:36"
         },
         {
             "name": "amphp/amp",
@@ -94,12 +101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/amp.git",
-                "reference": "cdf28fa938b9eb4224e88c0f0147599d2c848efc"
+                "reference": "a0b8de40fb09a7f0762917a2e0add4aeb812963c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/amp/zipball/cdf28fa938b9eb4224e88c0f0147599d2c848efc",
-                "reference": "cdf28fa938b9eb4224e88c0f0147599d2c848efc",
+                "url": "https://api.github.com/repos/amphp/amp/zipball/a0b8de40fb09a7f0762917a2e0add4aeb812963c",
+                "reference": "a0b8de40fb09a7f0762917a2e0add4aeb812963c",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +167,7 @@
                 "non-blocking",
                 "promise"
             ],
-            "time": "2017-03-31 04:45:54"
+            "time": "2017-04-07 17:50:01"
         },
         {
             "name": "amphp/cache",
@@ -398,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/socket.git",
-                "reference": "d6660cb67d2d96c322df2add45e49e66aacb443f"
+                "reference": "13e0166bd94aeb8b6dcd92dcdf0018b0da01d2e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/socket/zipball/d6660cb67d2d96c322df2add45e49e66aacb443f",
-                "reference": "d6660cb67d2d96c322df2add45e49e66aacb443f",
+                "url": "https://api.github.com/repos/amphp/socket/zipball/13e0166bd94aeb8b6dcd92dcdf0018b0da01d2e5",
+                "reference": "13e0166bd94aeb8b6dcd92dcdf0018b0da01d2e5",
                 "shasum": ""
             },
             "require": {
@@ -451,7 +458,7 @@
                 "tcp",
                 "tls"
             ],
-            "time": "2017-03-25 01:49:36"
+            "time": "2017-04-12 00:15:26"
         },
         {
             "name": "amphp/stream",
@@ -459,12 +466,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/stream.git",
-                "reference": "07bd162882168df6ebb99b55f31fd5171eb797d0"
+                "reference": "9ad62cae84216009e3066a53d3e1ea0104d90380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/stream/zipball/07bd162882168df6ebb99b55f31fd5171eb797d0",
-                "reference": "07bd162882168df6ebb99b55f31fd5171eb797d0",
+                "url": "https://api.github.com/repos/amphp/stream/zipball/9ad62cae84216009e3066a53d3e1ea0104d90380",
+                "reference": "9ad62cae84216009e3066a53d3e1ea0104d90380",
                 "shasum": ""
             },
             "require": {
@@ -502,7 +509,7 @@
                 "non-blocking",
                 "stream"
             ],
-            "time": "2017-03-29 05:09:34"
+            "time": "2017-04-12 00:17:44"
         },
         {
             "name": "amphp/windows-registry",
@@ -993,16 +1000,16 @@
         },
         {
             "name": "rdlowrey/auryn",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rdlowrey/auryn.git",
-                "reference": "2e4240791162dfe073d59654d8dc06df0eb0b73f"
+                "reference": "c6c92ec081c707f7e9e0a69185665147b30d66de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rdlowrey/auryn/zipball/2e4240791162dfe073d59654d8dc06df0eb0b73f",
-                "reference": "2e4240791162dfe073d59654d8dc06df0eb0b73f",
+                "url": "https://api.github.com/repos/rdlowrey/auryn/zipball/c6c92ec081c707f7e9e0a69185665147b30d66de",
+                "reference": "c6c92ec081c707f7e9e0a69185665147b30d66de",
                 "shasum": ""
             },
             "require": {
@@ -1050,7 +1057,7 @@
                 "dic",
                 "ioc"
             ],
-            "time": "2016-03-14T20:10:19+00:00"
+            "time": "2017-04-07T16:12:28+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -1773,16 +1780,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd"
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/28fb243a2b5727774ca309ec2d92da240f1af0dd",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd",
+                "url": "https://api.github.com/repos/symfony/console/zipball/c30243cc51f726812be3551316b109a2f5deaf8d",
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d",
                 "shasum": ""
             },
             "require": {
@@ -1832,20 +1839,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-06T19:30:27+00:00"
+            "time": "2017-04-04T14:33:42+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "b90c9f91ad8ac37d9f114e369042d3226b34dc1a"
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/b90c9f91ad8ac37d9f114e369042d3226b34dc1a",
-                "reference": "b90c9f91ad8ac37d9f114e369042d3226b34dc1a",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/56f613406446a4a0a031475cfd0a01751de22659",
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659",
                 "shasum": ""
             },
             "require": {
@@ -1889,20 +1896,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-18T17:28:00+00:00"
+            "time": "2017-03-28T21:38:24+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b7a1b9e0a0f623ce43b4c8d775eb138f190c9d8d"
+                "reference": "154bb1ef7b0e42ccc792bd53edbce18ed73440ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b7a1b9e0a0f623ce43b4c8d775eb138f190c9d8d",
-                "reference": "b7a1b9e0a0f623ce43b4c8d775eb138f190c9d8d",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/154bb1ef7b0e42ccc792bd53edbce18ed73440ca",
+                "reference": "154bb1ef7b0e42ccc792bd53edbce18ed73440ca",
                 "shasum": ""
             },
             "require": {
@@ -1949,20 +1956,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-04-04T07:26:27+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "92d7476d2df60cd851a3e13e078664b1deb8ce10"
+                "reference": "b20900ce5ea164cd9314af52725b0bb5a758217a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/92d7476d2df60cd851a3e13e078664b1deb8ce10",
-                "reference": "92d7476d2df60cd851a3e13e078664b1deb8ce10",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/b20900ce5ea164cd9314af52725b0bb5a758217a",
+                "reference": "b20900ce5ea164cd9314af52725b0bb5a758217a",
                 "shasum": ""
             },
             "require": {
@@ -1998,7 +2005,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-03-20T09:32:19+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2061,16 +2068,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892"
+                "reference": "57fdaa55827ae14d617550ebe71a820f0a5e2282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
-                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
+                "url": "https://api.github.com/repos/symfony/process/zipball/57fdaa55827ae14d617550ebe71a820f0a5e2282",
+                "reference": "57fdaa55827ae14d617550ebe71a820f0a5e2282",
                 "shasum": ""
             },
             "require": {
@@ -2106,20 +2113,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-04T12:23:14+00:00"
+            "time": "2017-03-27T18:07:02+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a"
+                "reference": "62b4cdb99d52cb1ff253c465eb1532a80cebb621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/093e416ad096355149e265ea2e4cc1f9ee40ab1a",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/62b4cdb99d52cb1ff253c465eb1532a80cebb621",
+                "reference": "62b4cdb99d52cb1ff253c465eb1532a80cebb621",
                 "shasum": ""
             },
             "require": {
@@ -2161,7 +2168,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-07T16:47:02+00:00"
+            "time": "2017-03-20T09:45:15+00:00"
         },
         {
             "name": "webmozart/assert",
