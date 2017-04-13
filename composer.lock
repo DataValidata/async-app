@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "776ab8a9a0be4c12c124fc75c6d8fd72",
+    "content-hash": "28f454f2deb1a49891ffcecc656aa301",
     "packages": [
         {
             "name": "amphp/aerys",
-            "version": "dev-amp_v2_dv",
+            "version": "dev-amp_v2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/DataValidata/aerys.git",
-                "reference": "748ea44fef98e411c5786350a44273dddb849e1c"
+                "url": "https://github.com/amphp/aerys.git",
+                "reference": "8b53917e78949d6749c65297d68a4d6555ade309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValidata/aerys/zipball/748ea44fef98e411c5786350a44273dddb849e1c",
-                "reference": "748ea44fef98e411c5786350a44273dddb849e1c",
+                "url": "https://api.github.com/repos/amphp/aerys/zipball/8b53917e78949d6749c65297d68a4d6555ade309",
+                "reference": "8b53917e78949d6749c65297d68a4d6555ade309",
                 "shasum": ""
             },
             "require": {
@@ -55,11 +55,7 @@
                     "lib/Internal/functions.php"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Aerys\\Test\\": "test/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -90,10 +86,7 @@
                 "server",
                 "websocket"
             ],
-            "support": {
-                "source": "https://github.com/DataValidata/aerys/tree/amp_v2_dv"
-            },
-            "time": "2017-04-12 23:03:36"
+            "time": "2017-04-12 23:41:04"
         },
         {
             "name": "amphp/amp",
@@ -359,12 +352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/process.git",
-                "reference": "6b965310b0f84a2e8290d02ec2bd68e6b2526a1b"
+                "reference": "594a5ef03945da8bf157cbee40d8df341ad13a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/process/zipball/6b965310b0f84a2e8290d02ec2bd68e6b2526a1b",
-                "reference": "6b965310b0f84a2e8290d02ec2bd68e6b2526a1b",
+                "url": "https://api.github.com/repos/amphp/process/zipball/594a5ef03945da8bf157cbee40d8df341ad13a3e",
+                "reference": "594a5ef03945da8bf157cbee40d8df341ad13a3e",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +390,7 @@
             ],
             "description": "Asynchronous process manager",
             "homepage": "https://github.com/amphp/process",
-            "time": "2017-03-21 22:37:12"
+            "time": "2017-04-12 23:57:19"
         },
         {
             "name": "amphp/socket",
@@ -466,12 +459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/stream.git",
-                "reference": "9ad62cae84216009e3066a53d3e1ea0104d90380"
+                "reference": "5e250f7c792e51c0e4edd9d58d031dc961841c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/stream/zipball/9ad62cae84216009e3066a53d3e1ea0104d90380",
-                "reference": "9ad62cae84216009e3066a53d3e1ea0104d90380",
+                "url": "https://api.github.com/repos/amphp/stream/zipball/5e250f7c792e51c0e4edd9d58d031dc961841c45",
+                "reference": "5e250f7c792e51c0e4edd9d58d031dc961841c45",
                 "shasum": ""
             },
             "require": {
@@ -509,7 +502,7 @@
                 "non-blocking",
                 "stream"
             ],
-            "time": "2017-04-12 00:17:44"
+            "time": "2017-04-12 05:43:48"
         },
         {
             "name": "amphp/windows-registry",

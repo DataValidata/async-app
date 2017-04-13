@@ -7,17 +7,11 @@
             "email": "ciaran@datavalidata.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/DataValidata/aerys"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=7.0.0",
-        "amphp/aerys": "dev-amp_v2_dv",
+        "amphp/aerys": "dev-amp_v2",
         "amphp/amp": "dev-master",
         "rdlowrey/auryn": "^1.4",
         "vlucas/phpdotenv": "^2.4",
