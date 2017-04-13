@@ -26,7 +26,6 @@ class AerysInternals implements Bootable, PsrLogger
         $this->logger = $logger;
         $this->booted = true;
         while(($bufferedMessage = array_shift($this->logBuffer))) {
-            var_dump($bufferedMessage);
             call_user_func_array([$this, 'delegateLog'], $bufferedMessage);
         }
     }
@@ -67,46 +66,49 @@ class AerysInternals implements Bootable, PsrLogger
 
     public function emergency($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function alert($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function critical($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function error($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function warning($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function notice($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function info($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function debug($message, array $context = array())
     {
-        $this->delegateLog(__FUNCTION__, $message, $context);
+        $this->log(__FUNCTION__, $message, $context);
     }
 
     public function log($level, $message, array $context = array())
     {
+        if(!array_key_exists('pid', $context)) {
+            $context['pid'] = getmypid();
+        }
         $this->delegateLog(__FUNCTION__, $level, $message, $context);
     }
 }

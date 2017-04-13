@@ -3,6 +3,7 @@
 namespace DataValidata\AsyncApp\Sample;
 
 
+use Aerys\Logger;
 use DataValidata\AsyncApp\Http\Routes\Generator;
 use Psr\Log\LoggerInterface;
 
@@ -16,8 +17,8 @@ class Controller
     public function __construct(Generator $routeGenerator, LoggerInterface $logger)
     {
         $this->generator = $routeGenerator;
-        $logger->critical("LOGGER IS INJECTED!");
         $this->logger = $logger;
+        $this->logger->debug("Controller constructed in process {pid}");
     }
 
     public function __invoke(\Aerys\Request $req, \Aerys\Response $res, $routeArgs = [])
