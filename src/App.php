@@ -148,7 +148,7 @@ final class App implements AsynchronousApp
     {
         $this->host = (new Host())
             ->expose("*", getenv('PORT'))
-            ->use($this->injector->make(Logger::class))
+            ->use($this->injector->make(RequestLogger::class))
             ->use($this->injector->make(AerysInternals::class))
         ;
         $this->injector->share($this->host);

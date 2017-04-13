@@ -4,10 +4,12 @@ namespace DataValidata\AsyncApp;
 
 use Psr\Log\LoggerInterface;
 
-class Logger implements \Aerys\Bootable, \Aerys\Middleware, LoggerInterface
+class RequestLogger implements \Aerys\Bootable, \Aerys\Middleware, LoggerInterface
 {
     /** @var  \Psr\Log\LoggerInterface */
     private $logger;
+
+    public static $LOG_LEVEL = 'info';
 
     const LOG_FORMAT = '%s %s %s [%s] "%s %s HTTP/%s" %s %s';
 
@@ -20,7 +22,8 @@ class Logger implements \Aerys\Bootable, \Aerys\Middleware, LoggerInterface
     {
         $headers = yield;
 
-        $this->logger->info(
+        $this->logger->log(
+            self::$LOG_LEVEL,
             vsprintf(
                 self::LOG_FORMAT,
                 [
